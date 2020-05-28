@@ -11,5 +11,6 @@ Fable.Elmish.HMR
 Fable.PowerPack
 Fable.React
 Fulma
+Fulma.Extensions.Wikiki.Tooltip
 Fable.Recharts
 Fable.SimpleJson

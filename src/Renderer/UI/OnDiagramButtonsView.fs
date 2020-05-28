@@ -8,6 +8,7 @@
 module OnDiagramButtonsView
 
 open Fulma
+open Fulma.Extensions.Wikiki
 open Elmish.React
 open Fable.Helpers.React
 open Fable.Helpers.React.Props
@@ -78,7 +79,7 @@ let pasteAction model =
 
 let viewOnDiagramButtons model dispatch =
     div [ canvasSmallMenuStyle ] [
-        Button.button [ Button.Props [ canvasSmallButtonStyle; OnClick (fun _ -> model.Diagram.Undo ()) ] ] [ str "< undo" ]
+        Button.button [ Button.Props [ canvasSmallButtonStyle; OnClick (fun _ -> model.Diagram.Undo ()); Tooltip.dataTooltip "Left tooltip"]; Button.CustomClass (Tooltip.ClassName + " " + Tooltip.IsTooltipLeft) ] [ str "< undo" ]
         Button.button [ Button.Props [ canvasSmallButtonStyle; OnClick (fun _ -> model.Diagram.Redo ()) ] ] [ str "redo >" ]
         Button.button [ Button.Props [ canvasSmallButtonStyle; OnClick (fun _ -> copyAction model dispatch) ] ] [ str "copy" ]
         Button.button [ Button.Props [ canvasSmallButtonStyle; OnClick (fun _ -> pasteAction model); ] ] [ str "paste" ]

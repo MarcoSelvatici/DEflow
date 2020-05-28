@@ -16,3 +16,4 @@ nuget Fable.Import.Node
 nuget Fable.PowerPack
 nuget Fable.React ~> 4.1.3
 nuget Fulma
+nuget Fulma.Extensions.Wikiki.Tooltip 1.0.0
