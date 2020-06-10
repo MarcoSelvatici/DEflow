@@ -198,6 +198,10 @@ let private viewSimulationData (simData : SimulationData) model dispatch =
             viewStatefulComponents (extractStatefulComponents simData.Graph) simData.NumberBase model dispatch
         ]
     div [] [
+        // Add button here to let user start a waveform simulation.
+        // A series of stub for implementing the waveform simulation via a popup
+        // window are proposed in WaveformView.fs.
+
         splittedLine maybeBaseSelector maybeClockTickBtn
 
         Heading.h5 [ Heading.Props [ Style [ MarginTop "15px" ] ] ] [ str "Inputs" ]

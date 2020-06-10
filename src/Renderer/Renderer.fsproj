@@ -17,6 +17,7 @@
     <Compile Include="UI/MemoryEditorView.fs" />
     <Compile Include="UI/FileMenuView.fs" />
     <Compile Include="UI/OnDiagramButtonsView.fs" />
+    <Compile Include="UI/WaveformView.fs" />
     <Compile Include="UI/SimulationView.fs" />
     <Compile Include="UI/CatalogueView.fs" />
     <Compile Include="UI/SelectedComponentView.fs" />
