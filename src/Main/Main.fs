@@ -29,12 +29,17 @@ let createMainWindow () =
     options.height <- Some 800.0
     options.autoHideMenuBar <- Some true
     options.icon <- Some (Fable.Core.U2.Case2 "app/icon.ico")
+    options.webPreferences <- Some <| jsOptions<WebPreferences>(fun w ->
+        w.nodeIntegration <- Some true
+    //    w.enableRemoteModule <- Some true
+    )
 
     let window = electron.BrowserWindow.Create(options)
 
     // Clear the menuBar.
-    let template = ResizeArray<MenuItemOptions> [createEmpty<MenuItemOptions>]
-    electron.Menu.setApplicationMenu(electron.Menu.buildFromTemplate(template))
+    // TODO: readd.
+    // let template = ResizeArray<MenuItemOptions> [createEmpty<MenuItemOptions>]
+    // electron.Menu.setApplicationMenu(electron.Menu.buildFromTemplate(template))
 
     // Load the index.html of the app.
     let opts = createEmpty<Node.Url.Url<obj>>

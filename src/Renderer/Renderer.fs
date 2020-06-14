@@ -25,6 +25,7 @@ let makeItem (accelerator : string) (action : unit -> unit) =
     let handlerCaster f = System.Func<MenuItem, BrowserWindow, unit> f |> Some
     let item = createEmpty<MenuItemOptions>
     item.accelerator <- Some accelerator
+    item.label <- Some ""
     // These menu items will be invisible and only accessible via shortcuts.
     // Thanks to VisUAL2 code for lending this function to DEflow.
     item.click <- handlerCaster (fun _ _ -> action())
@@ -34,12 +35,15 @@ let invisibleMenu dispatch =
     let invisibleMenu = createEmpty<MenuItemOptions>
     let dispatch = DiagramMessageType.KeyboardShortcutMsg >> dispatch
     invisibleMenu.submenu <-
-        [ makeItem "CmdOrCtrl+S" (fun () -> dispatch DiagramMessageType.CtrlS)
-          makeItem "Alt+C" (fun () -> dispatch DiagramMessageType.AltC)
-          makeItem "Alt+V" (fun () -> dispatch DiagramMessageType.AltV)
-          makeItem "Alt+Z" (fun () -> dispatch DiagramMessageType.AltZ)
-          makeItem "Alt+Shift+Z" (fun () -> dispatch DiagramMessageType.AltShiftZ) ]
-        |> ResizeArray<MenuItemOptions> |> U2.Case2 |> Some
+        // TODO: readd.
+        // [ makeItem "CmdOrCtrl+S" (fun () -> dispatch DiagramMessageType.CtrlS)
+        //   makeItem "Alt+C" (fun () -> dispatch DiagramMessageType.AltC)
+        //   makeItem "Alt+V" (fun () -> dispatch DiagramMessageType.AltV)
+        //   makeItem "Alt+Z" (fun () -> dispatch DiagramMessageType.AltZ)
+        //   makeItem "Alt+Shift+Z" (fun () -> dispatch DiagramMessageType.AltShiftZ) ]
+        
+        [] |> ResizeArray<MenuItemOptions> |> U2.Case2 |> Some
+    invisibleMenu.label <- Some ""
     invisibleMenu
 
 /// Create an invisible menu and attach keybindings to actions. 
@@ -51,11 +55,12 @@ let invisibleMenu dispatch =
 /// - redo diagram action: Alt+Shift+Z
 /// - save open file (not diagram action): Ctrl+S
 let attachKeyShortcuts _ =
-    let sub dispatch =
-        let template = ResizeArray<MenuItemOptions> [invisibleMenu dispatch]
-        template
-        |> electron.remote.Menu.buildFromTemplate
-        |> electron.remote.Menu.setApplicationMenu
+    // TODO: readd.
+    let sub dispatch = ()
+        // let template = ResizeArray<MenuItemOptions> [invisibleMenu dispatch]
+        // template
+        // |> electron.remote.Menu.buildFromTemplate
+        // |> electron.remote.Menu.setApplicationMenu
     Cmd.ofSub sub
 
 // This setup is useful to add other pages, in case they are needed.
