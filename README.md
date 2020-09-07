@@ -2,11 +2,18 @@
 
 DEflow is an application for digital circtuit design and simulation. It is targeted to students and hobbysts that want to get a grasp of Digital Electronics concepts in a simple and fun way. DEflow is designed to be beginner-friendly and guide the users toward their goals via clear error messages and visual clues.
 
-The application is currently being developed and maintained by Marco Selvatici, as a Final Year Project.
+The application has been developed by Marco Selvatici as a its graduation project.
 
-If you are just interested in using the application, jump to the [Getting Started](#getting-started) section. For more info about the project, read on.
+The application has since then been extended and maintained by the project supervisor (Tom Clarke) and other developers. You can find the most up to date versions in [another github repo](https://github.com/tomcl/issie/). These versions should have more features and are in general recommended for teaching porpuses.
+
+If you are just interested in using this version of the application, jump to the [Getting Started](#getting-started) section. For more info about the project, read on.
 
 This documentation is largely based on the excellent [VisUAL2](https://github.com/ImperialCollegeLondon/Visual2) documentation, given the similarity in the technology stack used.
+
+## Notable Resources
+
+- [Marco's dissertation](https://github.com/MarcoSelvatici/DEflow/blob/master/dissertation.pdf),
+- [Marco's poster](https://github.com/MarcoSelvatici/DEflow/blob/master/poster.pdf) (for a shorter and more visually appealing explanation of the project).
 
 ## Introduction
 
